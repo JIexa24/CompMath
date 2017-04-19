@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <assert.h>
 
 double a, b, c = 0;
 double e = 0.001;
@@ -18,6 +19,8 @@ double f1(double x)
 
 void bisec()
 {
+    assert(f(a) * f(b) < 0);
+
     int i;
     for (i = 0; fabs(b - a) > e && f(c) != 0; i++) {
         c = (a + b) / 2;
@@ -59,6 +62,7 @@ void newtoon()
 
 int main(int argc, char **argv)
 {
+    assert(!(argc < 3));
    
     a = atoi(argv[1]);
     b = atoi(argv[2]);
@@ -67,16 +71,18 @@ int main(int argc, char **argv)
     int tmpb = b;
     bisec();
     printf("answ: %.2lf\n", c);
-     c = 0;
-     a = tmpa;
-     b = tmpb;
+
+    c = 0;
+    a = tmpa;
+    b = tmpb;
     hord();
     printf("answ: %.2lf\n", c);
-     c = 0;
-     a = tmpa;
-     b = tmpb;
-    newtoon();
 
+    c = 0;
+    a = tmpa;
+    b = tmpb;
+    newtoon();
     printf("answ: %.2lf\n", c);
+
     return 0;
 }
