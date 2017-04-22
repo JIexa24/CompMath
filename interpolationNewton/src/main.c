@@ -68,7 +68,7 @@ int main(int argc, char** argv) {
   a = atoi(argv[1]);
   b = atoi(argv[2]);
   h = atoi(argv[3]);
-  int ctr = ((b - a) / 2) + 1;
+  int ctr = ((b - a) / h) + 1;
 
   double* xVal = (double *)malloc(sizeof(double) * ctr);
   double* yVal = (double *)malloc(sizeof(double) * ctr);
