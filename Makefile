@@ -12,7 +12,7 @@ LB3:
 
 INTER:
 	make -C interpolationNewton
-
+	make -C interpolationLagrange
 clean:
 	rm ./gauss/obj/*.o
 	rm ./mpiz/obj/*.o
