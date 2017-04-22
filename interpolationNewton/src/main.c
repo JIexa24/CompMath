@@ -80,7 +80,7 @@ int main(int argc, char** argv) {
 
   double x = xVal[0];
   int flg = 0;
-  for (int i = 0; i < xVal[ctr - 1]; i++) {
+  for (int i = xVal[0]; i < xVal[ctr - 1]; i++) {
     x += 1;
     flg = 0;
     for (int j = 0; j < ctr; j++) {
