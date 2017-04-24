@@ -38,7 +38,6 @@ double interpolation(double *x,double *y, double X, int ctr)
       ind = i;
   }
   if (X == x[ctr - 1])ind = ctr - 1;
- printf("~~%d!!%d!",ind, ctr);
   int cti = 0;
   int ctj = 0;
   for (int i = ind; cti < 3 && ind < ctr  - 2; i++) {
