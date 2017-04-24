@@ -9,7 +9,7 @@ double intrvl = 0.5;
 
 double f(double x)
 {
-  return x * x - 4;
+  return x * x - 1;
 }
 
 double f1(double x)

@@ -26,7 +26,7 @@ double interpolation(double *x,double *y, double X, int ctr)
             if (!(i == j))
               tmp *= (X - x[j]) / (x[i] - x[j]);
         }
-        res += tmp * func(x[i]);
+        res += tmp* func(X);
         printf("L%d(x) = %.6lf\t", i , res);
         printf("\n");
 
@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
     if (flg) {
       continue;
     }
-    printf("\n\nx = %.2lf\t", x);
+    printf("\n\nx = %.2lf\n", x);
     interpolation(xVal,yVal, x, ctr);
     printf("\nf(x) = %.2lf\n", func(x));
   }
