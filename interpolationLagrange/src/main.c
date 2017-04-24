@@ -10,7 +10,7 @@ int cnt;
 
 double func(double x)
 {
-  return sin(x);
+  return x * x * x;
 }
 
 double interpolation(double *x,double *y, double X, int ctr)
@@ -19,16 +19,40 @@ double interpolation(double *x,double *y, double X, int ctr)
 
   int c;
   double tmp = 1;
-
+/*
   for (int i = 0; i < ctr; i++) {
     tmp = 1;
     for (int j = 0; j < ctr; j++) {
-      if (!(i == j))
+      if (!(i == j)) {
         tmp *= (X - x[j]) / (x[i] - x[j]);
+      }
     }
-    res += tmp;//* func(X);
+    res += tmp * func(X);
+    if (i < 4)
     printf("L%d(x) = %.6lf\t", i , res);
-    printf("\n");
+    //printf("\n");
+  }*/
+  int ind = 0;
+  for (int i = 0; i < ctr - 1; i++) {
+    if (X < x[i + 1] && X >= x[i])
+      ind = i;
+  }
+  if (X == x[ctr - 1])ind = ctr - 1;
+ printf("~~%d!!%d!",ind, ctr);
+  int cti = 0;
+  int ctj = 0;
+  for (int i = ind; cti < 3 && ind < ctr  - 2; i++) {
+    tmp = 1;
+    for (int j = ind; ctj < 3 && ind < ctr - 2; j++) {
+      if (!(i == j)) {
+        tmp *= (X - x[j]) / (x[i] - x[j]);
+      }ctj++;
+    }
+    res += tmp * func(X);
+
+    printf("L%d(x) = %.6lf\t", cti , res);
+    //printf("\n");
+    cti++;ctj = 0;
   }
   return res;
 } 
@@ -75,10 +99,10 @@ int main(int argc, char** argv) {
 
   double x = xVal[0] - h/2;
   int flg = 0;
-  for (int i = 0; i < ctr,x < xVal[ctr - 1] - h; i++) {
-    x += h;
+  for (int i = 0; i < ctr,x < xVal[ctr - 1]; i++) {
+    x += h/2;
     flg = 0;
-    for (int j = 0; j < ctr; j++) {
+   /* for (int j = 0; j < ctr; j++) {
       if (xVal[j] == x) {
         flg = 1;
          break;
@@ -86,10 +110,10 @@ int main(int argc, char** argv) {
     }
     if (flg) {
       continue;
-    }
-    printf("\n\nx = %.2lf\n", x);
+    }*/
+    printf("\n\nx = %.2lf\t", x);
     interpolation(xVal,yVal, x, ctr);
-    printf("\nf(x) = %.2lf\n", func(x));
+    printf("f(x) = %.2lf\n", func(x));
   }
 
   return 0;
