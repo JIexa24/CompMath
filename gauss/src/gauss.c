@@ -58,6 +58,14 @@ int main( void )
       for ( j = n; j >= k; j-- )
         mas[i] [j] -= mas[k] [j] * mas[i] [k];
   }
+
+  printf( "Система:\n" );
+  for ( i = 0; i < n; i++ )
+  {
+    for ( j = 0; j < n + 1; j++ )
+      printf( "%7.2f ", mas[i] [j] );
+    printf( "\n" );
+  }
   //Обратный ход
   for ( i = 0; i < n; i++ )
     x[i] = mas[i] [n];
@@ -108,4 +116,11 @@ void glavelem( int k, double mas[] [N + 1], int n, int otv[] )
   i = otv[k];
   otv[k] = otv[j_max];
   otv[j_max] = i;
+  printf( "Система!:\n" );
+  for ( i = 0; i < n; i++ )
+  {
+    for ( j = 0; j < n + 1; j++ )
+      printf( "%7.2f ", mas[i] [j] );
+    printf( "\n" );
+  }
 }

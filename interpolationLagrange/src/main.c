@@ -15,24 +15,22 @@ double func(double x)
 
 double interpolation(double *x,double *y, double X, int ctr)
 {
-    double res = 0;
+  double res = 0;
 
-    int c;
-    double tmp = 1;
+  int c;
+  double tmp = 1;
 
-    for (int i = 0; i < ctr; i++) {
-        tmp = 1;
-        for (int j = 0; j < ctr; j++) {
-            if (!(i == j))
-              tmp *= (X - x[j]) / (x[i] - x[j]);
-        }
-        res += tmp* func(X);
-        printf("L%d(x) = %.6lf\t", i , res);
-        printf("\n");
-
+  for (int i = 0; i < ctr; i++) {
+    tmp = 1;
+    for (int j = 0; j < ctr; j++) {
+      if (!(i == j))
+        tmp *= (X - x[j]) / (x[i] - x[j]);
     }
-    return res;
-
+    res += tmp;//* func(X);
+    printf("L%d(x) = %.6lf\t", i , res);
+    printf("\n");
+  }
+  return res;
 } 
 
 void createPrintTable(double *x, double *y, int ctr)
