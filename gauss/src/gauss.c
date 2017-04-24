@@ -3,6 +3,10 @@
 #include <math.h>
 
 #define N 20
+
+
+void glavelem( int k, double mas[] [N + 1], int n, int otv[] );
+
 int main( void )
 {
   double mas[N] [N + 1];
@@ -88,7 +92,7 @@ int main( void )
 //----------------------------------------------
 void glavelem( int k, double mas[] [N + 1], int n, int otv[] )
 {
-  int i, j, i_max = k, j_max = k;
+  int i, j, i_max = k, j_max = k, f, e;
   double temp;
   //Ищем максимальный по модулю элемент
   for ( i = k; i < n; i++ )
@@ -105,6 +109,13 @@ void glavelem( int k, double mas[] [N + 1], int n, int otv[] )
     mas[k] [j] = mas[i_max] [j];
     mas[i_max] [j] = temp;
   }
+  printf( "Системаstr:\n" );
+  for ( f = 0; f < n; f++ )
+  {
+    for ( e = 0; e < n + 1; e++ )
+      printf( "%7.2f ", mas[f][e] );
+    printf( "\n" );
+  }
   //Переставляем столбцы
   for ( i = 0; i < n; i++ )
   {
@@ -116,11 +127,4 @@ void glavelem( int k, double mas[] [N + 1], int n, int otv[] )
   i = otv[k];
   otv[k] = otv[j_max];
   otv[j_max] = i;
-  printf( "Система!:\n" );
-  for ( i = 0; i < n; i++ )
-  {
-    for ( j = 0; j < n + 1; j++ )
-      printf( "%7.2f ", mas[i] [j] );
-    printf( "\n" );
-  }
 }
