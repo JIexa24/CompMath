@@ -117,7 +117,7 @@ void iteration(int n, double **matr){
     t[i] = t[i] + matr[i][n];
   }
   for (i = 0; i < n; i++ ) {
-    if(fabs(t[i] - p[i]) <= 0.001){
+    if(fabs(t[i] - p[i]) <= 0.0001){
       f++;
     }
     t[i] = 0;
