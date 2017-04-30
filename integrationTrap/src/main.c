@@ -5,14 +5,14 @@
 
 double func(double x)
 {
-  return x;
+  return -(x*x) + 4;
 }
 
 int main(int argc, char **argv)
 {
   double a = atof(argv[1]);
   double b = atof(argv[2]);
-  int n = atoш(argv[3]);
+  int n = atoi(argv[3]);
   printf("Integration: [%f, %f], n = %d\n", a, b, n);
   double h = (b - a) / n;
   double s = 0.0;
