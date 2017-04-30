@@ -10,10 +10,9 @@ double func(double x)
 
 int main(int argc, char **argv)
 {
-
   double a = atof(argv[1]);
   double b = atof(argv[2]);
-  int n = 10;
+  int n = atoш(argv[3]);
   printf("Integration: [%f, %f], n = %d\n", a, b, n);
   double h = (b - a) / n;
   double s = 0.0;
