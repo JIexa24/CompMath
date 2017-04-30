@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -g3 -O0 -fopenmp -std=c99 
 
-all: GAUSS MPIZ LB3 INTER
+all: GAUSS MPIZ LB3 INTER INTEG
 
 GAUSS:
 	make -C gauss
@@ -13,6 +13,10 @@ LB3:
 INTER:
 	make -C interpolationNewton
 	make -C interpolationLagrange
+
+INTEG:
+	make -C integrationTrap
+
 clean:
 	rm ./gauss/obj/*.o
 	rm ./mpiz/obj/*.o
