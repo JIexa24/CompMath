@@ -22,9 +22,9 @@ int main(int argc, char **argv)
       s +=((func(a + h * (i)) + func(a + h * (i + 1))) / 2) * h;
   }
 
-  printf("a = %lf\n", a);
-  printf("b = %lf\n", b);
-  printf("st = %lf\n", h);
-  printf("S = %lf\n", s);
+  printf("a = %.12lf\n", a);
+  printf("b = %.12lf\n", b);
+  printf("st = %.12lf\n", h);
+  printf("S = %.12lf\n", s);
   return 0;
 }
