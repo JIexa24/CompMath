@@ -8,7 +8,7 @@ double e = 0.01;
 
 double f(double x)
 {
-  return sin(x) ;
+  return sin(x);
 }
 
 double f1(double x)

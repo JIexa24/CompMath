@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g3 -std=c99 -lm
+CFLAGS = -g3 -std=c99 -lm -g
 
 all: ./obj/main.o ./obj/main.o
 	$(CC) ./obj/main.o -o ./bin/main -lm

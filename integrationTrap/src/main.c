@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <inttypes.h>
+#include <assert.h>
 
 double func(double x)
 {
@@ -10,6 +11,7 @@ double func(double x)
 
 int main(int argc, char **argv)
 {
+  assert(!(argc < 4));
   double a = atof(argv[1]);
   double b = atof(argv[2]);
   int n = atoi(argv[3]);
