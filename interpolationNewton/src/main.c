@@ -42,7 +42,7 @@ double interpolation(double *x, double *y, int ctr, double X)
   }
   printf("P(x) = %.2f\t", result);
   return result;
-} 
+}
 
 void createPrintTable(double *x, double *y, int ctr)
 {
@@ -63,7 +63,8 @@ void createPrintTable(double *x, double *y, int ctr)
 
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
   assert(!(argc < 4));
   a = atoi(argv[1]);
   b = atoi(argv[2]);
@@ -82,17 +83,9 @@ int main(int argc, char** argv) {
   int flg = 0;
   for (int i = xVal[0]; i < xVal[ctr - 1]; i++) {
     x += 1;
-    flg = 0;
-    for (int j = 0; j < ctr; j++) {
-      if (xVal[j] == x) {
-        flg = 1;
-        break;
-      }
-    }
-    if (flg) {
-      continue;
-    }
-    printf("x = %.2lf ", x);
+    if (i % 2 == 0)
+      printf("Tabl: ");
+    printf("x = %.2lf \t", x);
 
     interpolation(xVal, yVal, ctr, x);
 
@@ -101,5 +94,3 @@ int main(int argc, char** argv) {
 
   return 0;
 }
-
-

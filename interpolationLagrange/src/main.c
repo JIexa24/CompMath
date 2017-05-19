@@ -54,7 +54,7 @@ double interpolation(double *x,double *y, double X, int ctr)
     cti++;ctj = 0;
   }
   return res;
-} 
+}
 
 void createPrintTable(double *x, double *y, int ctr)
 {
@@ -75,7 +75,8 @@ void createPrintTable(double *x, double *y, int ctr)
 
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
   assert(!(argc < 4));
 
   a = atof(argv[1]);
@@ -110,12 +111,12 @@ int main(int argc, char** argv) {
     if (flg) {
       continue;
     }*/
-    printf("\n\nx = %.2lf\t", x);
+    if (i % 2 == 0)
+      printf("Tabl: ");
+    printf("x = %.2lf\t", x);
     interpolation(xVal,yVal, x, ctr);
     printf("f(x) = %.2lf\n", func(x));
   }
 
   return 0;
 }
-
-

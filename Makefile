@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -g3 -O0 -fopenmp -std=c99 
+CFLAGS = -g3 -O0 -fopenmp -std=c99
 
-all: GAUSS MPIZ LB3 INTER INTEG
+all: GAUSS MPIZ LB3 INTER INTEG SNU
 
 GAUSS:
 	make -C gauss
@@ -13,8 +13,11 @@ LB3:
 INTER:
 	make -C interpolationNewton
 	make -C interpolationLagrange
+	make -C interpolationEitken
 
 INTEG:
+	make -C integrationTrap
+SNU:
 	make -C integrationTrap
 
 clean:
