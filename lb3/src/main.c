@@ -43,7 +43,7 @@ void hord()
       b = c;
     else
       a = c;
-  } 
+  }
   printf("hord steps: %lf\n", i);
 }
 
@@ -54,8 +54,8 @@ void newtoon()
   c = (-1) * (f(tmp) / f1(tmp)) + tmp;
   for (j = 0; f(c) != 0 && fabs(c - tmp) > e; j++) {
     tmp = c;
-     c = tmp - (f(tmp) / f1(tmp));
-  } 
+    c = tmp - (f(tmp) / f1(tmp));
+  }
   printf("newtoon steps: %lf\n", j);
 }
 
