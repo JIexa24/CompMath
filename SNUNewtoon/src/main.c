@@ -81,6 +81,7 @@ void printm(double **matrix)
 }
 
 void str_move(double **matrix, int fr, int to)
+{
   double tmp = 0;
   for (int i = 0; i < cnt + 1; i++) {
     tmp = matrix[to][i];

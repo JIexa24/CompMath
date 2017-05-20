@@ -18,8 +18,17 @@ INTER:
 INTEG:
 	make -C integrationTrap
 SNU:
-	make -C integrationTrap
+	make -C SNUNewtoon
 
 clean:
-	rm ./gauss/obj/*.o
-	rm ./mpiz/obj/*.o
+	rm -f ./gauss/obj/*.o
+	rm -f ./mpiz/obj/*.o
+	rm -f ./lb3/obj/*.o
+	rm -f ./interpolationLagrange/obj/*.o
+	rm -f ./interpolationEitken/obj/*.o
+	rm -f ./interpolationNewton/obj/*.o
+	rm -f ./SNUNewtoon/obj/*.o
+
+restruct:
+	make clean
+	make all
