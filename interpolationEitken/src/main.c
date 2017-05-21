@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <assert.h>
 
-double a = 0.6; //начало интервала
-double b = 1.21; //конец
-double h = 0.2; //длина интервала
+double a;
+double b;
+double h;
 
 double *xVal = NULL;
 double *yVal = NULL;
