@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <assert.h>
 
-int h;
-int a;
-int b;
+double h;
+double a;
+double b;
 
 double func(double x)
 {
-  return (x * x * x + 1);
+  return (1/x);
 }
 
 double factorial(double value)
@@ -40,7 +40,7 @@ double interpolation(double *x, double *y, int ctr, double X)
     q = tmp;
     result+= ys[0] / factorial(j + 1) * q;
   }
-  printf("P(x) = %.2f\t", result);
+  printf("P(x) = %f\t", result);
   return result;
 }
 
@@ -59,16 +59,16 @@ void createPrintTable(double *x, double *y, int ctr)
     y[i] = func(x[i]);
     printf("%.2lf\t", y[i]);
   }
-  printf("\n\nh = %d", h);
+  printf("\n\nh = %lf", h);
 
 }
 
 int main(int argc, char** argv)
 {
   assert(!(argc < 4));
-  a = atoi(argv[1]);
-  b = atoi(argv[2]);
-  h = atoi(argv[3]);
+  a = atof(argv[1]);
+  b = atof(argv[2]);
+  h = atof(argv[3]);
   int ctr = ((b - a) / h) + 1;
 
   double* xVal = (double *)malloc(sizeof(double) * ctr);
@@ -81,15 +81,15 @@ int main(int argc, char** argv)
 
   double x = xVal[0];
   int flg = 0;
-  for (int i = xVal[0]; i < xVal[ctr - 1]; i++) {
-    x += 1;
+  for (int i = 0; i < 2*ctr - 1; i++) {
+    double x = a + h / 2 * i;
     if (i % 2 == 0)
       printf("Tabl: ");
-    printf("x = %.2lf \t", x);
+    printf("x = %lf \t", x);
 
     interpolation(xVal, yVal, ctr, x);
 
-    printf("f(x) = %.2lf\n", func(x));
+    printf("f(x) = %lf\n", func(x));
   }
 
   return 0;
