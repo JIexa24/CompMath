@@ -65,7 +65,7 @@ void createPrintTable(double *x, double *y, int ctr)
 double interpolate(double x, double *xVal, double *yVal)
 {
   int i       = 0;
-  int ind     = 6;
+  int ind     = 1;
   double ret  = 0;
   double hloc = 0;
   for (i = 0; i < cnt - 1; i++) {
