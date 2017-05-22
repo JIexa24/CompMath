@@ -86,7 +86,7 @@ double interpolate(double x, double *xVal, double *yVal)
 
 int main(int argc, char** argv)
 {
-//  assert(!(argc < 4));
+  assert(!(argc < 4));
 
   a = atof(argv[1]);
   b = atof(argv[2]);
