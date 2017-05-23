@@ -15,6 +15,7 @@ INTER:
 	make -C interpolationLagrange
 	make -C interpolationEitken
 	make -C interpolationSpline
+	make -C interpolationTrigan
 
 INTEG:
 	make -C integrationTrap
