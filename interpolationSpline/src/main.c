@@ -12,7 +12,7 @@ double *xVal = NULL, *yVal = NULL;
 
 double func(double x)
 {
-  return x;
+  return x*x - x;
 }
 double hcoff(int ind)
 {
@@ -20,7 +20,7 @@ double hcoff(int ind)
 }
 double ccoff(int ind)
 {
-  if (ind == 0 | ind == cnt - 1)
+  if (ind%3 == 0 | ind%3 == 2)
     return 0;
 
   double ret = 6 * ((func(xVal[ind+1]) - func(xVal[ind]))/(hcoff(ind+1)) -
@@ -71,7 +71,7 @@ double interpolate(double x, double *xVal, double *yVal)
   for (i = 0; i < cnt - 1; i++) {
     if (x >= xVal[i] & x <= xVal[i+1])
     {
-      ind = i + 1;;
+      ind = i + 1;
       break;
     }
   }
