@@ -8,7 +8,8 @@ double a;
 double b;
 int cnt;
 
-double *xVal = NULL, *yVal = NULL;
+double *xVal = NULL;
+double *yVal = NULL;
 
 double func(double x)
 {
@@ -95,7 +96,7 @@ int main(int argc, char** argv)
   cnt = ((b - a) / h) + 1;
   xVal = (double*) malloc(sizeof(double) * cnt);
   yVal = (double*) malloc(sizeof(double) * cnt);
-    createPrintTable(xVal, yVal,  cnt);
+  createPrintTable(xVal, yVal,  cnt);
   printf("\n");
 
   for (int i = 0; i < 2*cnt - 1; i++) {
