@@ -6,14 +6,15 @@
 double h;
 double a;
 double b;
-double cnt;
+int cnt;
 double e = 0.1;
 
+const double PI = 3.14159265358979323846;
 double *xVal = NULL, *yVal = NULL;
 
 double func(double x)
 {
-  return sin(x);
+  return -2 * cos(x) * cos(x);
 }
 void createPrintTable(double *x, double *y, int ctr)
 {
@@ -30,7 +31,7 @@ void createPrintTable(double *x, double *y, int ctr)
     y[i] = func(x[i]);
     printf("%.2lf\t", y[i]);
   }
-  printf("\n\nh = %lf", h);
+  printf("\n\nh = %lf\n", h);
 
 }
 
@@ -40,8 +41,8 @@ double interpolate(double x, double *xVal, double *yVal)
   int j       = 1;
   double ret  = 0;
   double tmpret = 0;
-  double b = 0;
-  double a = 0;
+  double bn = 0;
+  double an = 0;
   double aZero = 0;
   for (i = 0; i < cnt; i++) {
     aZero= aZero + yVal[i];
@@ -50,22 +51,22 @@ double interpolate(double x, double *xVal, double *yVal)
   aZero = aZero /(cnt);
   tmpret = aZero;
   do {
-    b = 0;
-    a = 0;
+    bn = 0;
+    an = 0;
     ret = tmpret;
     for (i = 0; i < cnt; i++) {
-      a = a + yVal[i]*cos(j*xVal[i]);
+      an = an + yVal[i]*cos(j*xVal[i]);
     }
-    a = 2*a / cnt;
+    an = 2*an / cnt;
     for (i = 0; i < cnt; i++) {
-      b = b + yVal[i]*sin(j*xVal[i]);
+      bn = bn + yVal[i]*sin(j*xVal[i]);
     }
-    b = 2*b / cnt;
-    tmpret = tmpret + a*cos(j*x) + b*sin(j*x);
+    bn = 2*bn / cnt;
+    tmpret = tmpret + an*cos(j*x) + bn*sin(j*x);
     ++j;
   //  printf("\n%lf %lf %d %lf %lf\n", tmpret, ret, j,((tmpret >= ret)?(tmpret -ret) : (ret - tmpret)), e);
    //if (((tmpret >= ret)?(tmpret -ret) : (ret - tmpret)) <= e & tmpret <= 1) break;
-} while (j < cnt);
+} while (j < 3);
   return tmpret;
 }
 
@@ -76,20 +77,25 @@ int main(int argc, char** argv)
   a = atof(argv[1]);
   b = atof(argv[2]);
   h = atof(argv[3]);
+  
+  double eps1 = 0;
+  double eps2 = 0;
 
-  cnt = ((b - a) / h) + 1;
+  cnt = ((b - a) / h);
+
   xVal = (double*) malloc(sizeof(double) * cnt);
   yVal = (double*) malloc(sizeof(double) * cnt);
-    createPrintTable(xVal, yVal,  cnt);
-  printf("\n");
-  printf("cnt = %lf", cnt);
-  printf("\n");
+  createPrintTable(xVal, yVal,  cnt);
 
   for (int i = 0; i < 2*cnt - 1; i++) {
     double x = a + h / 2 * i;
     printf("x = %.2lf\t", x);
-    printf("T(x) = %lf\t", interpolate(x, xVal, yVal));
-    printf("func(x) = %lf \n", func(x));
+    printf("T(x) = %lf\t", eps1 = interpolate(x, xVal, yVal));
+    printf("func(x) = %lf \n",func(x));
+    eps1 = func(x) - eps1;
+    eps2 += eps1;
   }
+  eps2 /= (2 * cnt - 1);
+  printf("\n\n%lf\n", eps2);
 	return 0;
 }
