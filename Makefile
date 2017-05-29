@@ -19,6 +19,8 @@ INTER:
 
 INTEG:
 	make -C integrationTrap
+	make -C Runge
+
 SNU:
 	make -C SNUNewtoon
 
