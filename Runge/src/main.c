@@ -37,6 +37,8 @@ int main(int argc, char **argv)
   for (int i = 1; i < n; i++) {
     printf("Eiler func: [%lf, %lf], iter = -\n", xVal[i], yVal[i]);
   }
+  printf("\n\n");
+
   for (int i = 1; i < n; i++) {
     iter = 0;
     yVal1[i] = yVal[i - 1] + h * func(xVal[i - 1], yVal[i - 1]);
