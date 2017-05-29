@@ -21,11 +21,11 @@ double hcoff(int ind)
 }
 double ccoff(int ind)
 {
-  if (ind % 3 == 0 | ind % 3 == 2)
+  if (ind  == 0 | ind == cnt - 1)
     return 0;
 
-  double ret = 6 * ((func(xVal[ind + 1]) - func(xVal[ind]))/(hcoff(ind + 1)) -
-               (func(xVal[ind]) - func(xVal[ind - 1]))/(hcoff(ind)));
+  double ret = 6 * ((func(xVal[ind + 1]) - func(xVal[ind])) / (hcoff(ind + 1)) -
+               (func(xVal[ind]) - func(xVal[ind - 1])) / (hcoff(ind)));
   ret = ret - hcoff(ind + 1) * ccoff(ind + 1);
   ret = ret - hcoff(ind) * ccoff(ind - 1);
   ret = ret / (2 * (hcoff(ind + 1) + hcoff(ind)));
