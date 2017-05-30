@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <math.h>
 
-void read_matrix(int n, double **matr, FILE *f); 
-void print_matrix(int n, double **matr); 
+void read_matrix(int n, double **matr, FILE *f);
+void print_matrix(int n, double **matr);
 void iteration(int n, double **matr);
 
 int main()
 {
   FILE *f ;
   f = fopen("matrix.txt", "r");
-  
+
   int n;
   fscanf(f,"%d", &n);
 
@@ -23,7 +23,7 @@ int main()
 
   read_matrix(n, mas, f);
   print_matrix(n, mas);
-    
+
   iteration(n, mas);
 
   fclose(f);
@@ -58,18 +58,18 @@ void iteration(int n, double **matr){
   double p[n];
   double tmp;
   float kf;
-    
+
   for (i = 0; i < n - 1; i++ ) {
     k = 0;
     kf = matr[i][0] / matr[i+1][0];
     for (j = 0; j < n; j++ ) {
       if (matr[i][j] == kf * matr[i+1][j])
-        k++;  
+        k++;
       if (k == n) {
         system("echo 'Матрица Вырожденная (с)Сергей М.'");
         exit(1);
       }
-    }  
+    }
   }
 		// проверка на диагональное преобладание
   for (i = 0; i < n; i++ ) {
@@ -89,16 +89,16 @@ void iteration(int n, double **matr){
     temp = matr[i][i];
     for(j = 0; j < n + 1; j++){
       if(temp != 0)
-        matr[i][j] /= temp;			
+        matr[i][j] /= temp;
     }
   }
-	
+
   for (i = 0; i < n; i++ ) {
     for(j = 0; j < n + 1; j++){
       matr[i][i] = 0;
       x[i] = 0;
-      t[i] = 0;	
-      p[i] = 0;	
+      t[i] = 0;
+      p[i] = 0;
     }
   }
 
@@ -108,7 +108,7 @@ void iteration(int n, double **matr){
   while(1){
 
   f = 0;
-		
+
   for (i = 0; i < n; i++ ) {
     for(j = 0; j < n ; j++){
       t[i] = t[i] - matr[i][j] * x[j];
@@ -128,17 +128,17 @@ void iteration(int n, double **matr){
       p[i] = x[i];
   }
 
-  k++;  
-  if (f == n) break;	
+  k++;
+  if (f == n) break;
   }
-	
+
   printf("\nSolution:\n");
   printf("******************\n");
 
   for(i = 0; i < n; i++)
     printf("x%d = %.5lf\t", i+1, x[i]);
 
-  printf("\nCount iteration = %d",k);	
-  printf("\n******************\n");		
-		
+  printf("\nCount iteration = %d",k);
+  printf("\n******************\n");
+
 }
