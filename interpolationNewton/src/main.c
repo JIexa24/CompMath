@@ -13,7 +13,7 @@ double func(double x)
 
 double factorial(double value)
 {
-  int result = 1;
+  double result = 1;
   for (int i = 1; i < value; i++)
     result *= (i + 1);
   return result;
