@@ -14,10 +14,12 @@ int main(int argc, char **argv)
   assert(!(argc < 4));
   double a = atof(argv[1]);
   double b = atof(argv[2]);
-  int h = atoi(argv[3]);
+  double h = atof(argv[3]);
   double eps = atof(argv[4]);
+  double tmph = h;
 
   int n = (b - a) / h + 1;
+  int tmpn = n;
   printf("n = %d\n", n);
   double* xVal = (double *)malloc(sizeof(double) * n);
   double* yVal = (double *)malloc(sizeof(double) * n);
@@ -25,19 +27,11 @@ int main(int argc, char **argv)
   for (int i = 0; i < n; i++) {
     xVal[i] = a + h*i;
   }
-  yVal[0] = 1;
-  yVal1[0] = yVal[0];
   int iter = 0;
   int flg = 0;
 
-  printf("Eiler func: [%lf, %lf], iter = -\n", xVal[0], yVal[0]);
-  for (int i = 1; i < n; i++) {
-    yVal[i] = yVal[i - 1] + h * func(xVal[i - 1], yVal[i - 1]);
-  }
-  for (int i = 1; i < n; i++) {
-    printf("Eiler func: [%lf, %lf], iter = -\n", xVal[i], yVal[i]);
-  }
-  printf("\n\n");
+  yVal[0] = 1;
+  yVal1[0] = yVal[0];
 
   for (int i = 1; i < n; i++) {
     iter = 0;
@@ -49,15 +43,15 @@ int main(int argc, char **argv)
       }
       yVal[i] = yVal[i - 1] + (h*((func(xVal[i - 1], yVal[i - 1]) + func(xVal[i], yVal1[i])) / 2));
       iter++;
-      double a = yVal[i];
-      double a1 = yVal1[i];
-      double b = a - a1;
+      double a1 = yVal[i];
+      double a2 = yVal1[i];
+      double b1 = a1 - a2;
 
-      if (b < 0) {
-        b = -b;
+      if (b1 < 0) {
+        b1 = -b1;
       }
-      if (b <= eps) break;
-    } while (b > eps);
+      if (b1 <= eps) break;
+    } while (1);
     printf("Eiler func: [%lf, %lf], iter = %d\n", xVal[i], yVal[i], iter);
   }
 
