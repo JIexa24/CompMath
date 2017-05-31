@@ -67,10 +67,8 @@ int main(int argc, char **argv)
     tmpy1 = tmpy1 + h1 * func( a + h1*(i-1), tmpy1);
     printf("4:Eiler func: [%.4lf, %.12lf][%lf], iter = %d\n", a + h1*i, tmpy1, h1, ++iter);
   }
-	//	for (int i = 0; i < n; i++) {
-		//	printf("Eiler func: [%lf, %lf]\n", xVal[i], yVal[i]);
-	//	}
-		/*---------------------*/
+	
+	
   printf("\n\n");
   tmpy = y0;
   tmpy1 = y0;
