@@ -28,10 +28,14 @@ clean:
 	rm -f ./gauss/obj/*.o
 	rm -f ./mpiz/obj/*.o
 	rm -f ./lb3/obj/*.o
+	rm -f ./interpolationTrigan/obj/*.o
+	rm -f ./interpolationSpline/obj/*.o
 	rm -f ./interpolationLagrange/obj/*.o
 	rm -f ./interpolationEitken/obj/*.o
 	rm -f ./interpolationNewton/obj/*.o
+	rm -f ./integrationTrap/obj/*.o
 	rm -f ./SNUNewtoon/obj/*.o
+	rm -f ./Runge/obj/*.o
 
 restruct:
 	make clean
