@@ -56,11 +56,17 @@ int main( void )
       printf( "Система не имеет единственного решения\n" );
       return ( 0 );
     }
+    printf("Обнуление столбца %d\n", k);
+    printf("Деление строки %d на %lf\n", k, mas[k][k]);
     for ( j = n; j >= k; j-- )
       mas[k] [j] /= mas[k] [k];
-    for ( i = k + 1; i < n; i++ )
-      for ( j = n; j >= k; j-- )
+    for ( i = k + 1; i < n; i++ ) {
+    printf("Вычитание строки %d из %d\n", k, i);
+      for ( j = n; j >= k; j-- ){
+        printf("%.2lf - %.2lf * %.2lf = %.2lf\n",mas[i] [j] , mas[k] [j] , mas[i] [k], mas[i] [j] - mas[k] [j] * mas[i] [k]);
         mas[i] [j] -= mas[k] [j] * mas[i] [k];
+      }
+    }
   }
 
   printf( "Система:\n" );
@@ -103,6 +109,7 @@ void glavelem( int k, double mas[] [N + 1], int n, int otv[] )
         j_max = j;
       }
   //Переставляем строки
+  printf("установка главного элемента столбца %lf(%d) на строку %d\n",mas[i_max][j_max],i_max,k);
   for ( j = k; j < n + 1; j++ )
   {
     temp = mas[k] [j];
@@ -116,13 +123,7 @@ void glavelem( int k, double mas[] [N + 1], int n, int otv[] )
       printf( "%7.2f ", mas[f][e] );
     printf( "\n" );
   }
-  //Переставляем столбцы
-  for ( i = 0; i < n; i++ )
-  {
-    temp = mas[i] [k];
-    mas[i] [k] = mas[i] [j_max];
-    mas[i] [j_max] = temp;
-  }
+
   //Учитываем изменение порядка корней
   i = otv[k];
   otv[k] = otv[j_max];
