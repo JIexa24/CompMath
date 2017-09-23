@@ -40,9 +40,9 @@ double interpolation(double *x,double *y, double X, int ctr)
   if (X == x[ctr - 1])ind = ctr - 1;
   int cti = 0;
   int ctj = 0;
-  for (int i = ind; cti < 3 && ind < ctr  - 2; i++) {
+  for (int i = ind; cti < 3 && ind < ctr  - 1; i++) {
     tmp = 1;
-    for (int j = ind; ctj < 3 && ind < ctr - 2; j++) {
+    for (int j = ind; ctj < 3 && ind < ctr - 1; j++) {
       if (!(i == j)) {
         tmp *= (X - x[j]) / (x[i] - x[j]);
       }ctj++;
