@@ -146,7 +146,7 @@ int main(int argc, char **argv)
   printf("x:Eiler func: [%.4lf, %.12lf]\n", a, y0);
   for (int i = 1; i < n1; i++) {
     tmpy1 = tmpy1 + hEiler * func( a + hEiler*(i-1), tmpy1);
-    printf("4:Eiler func: [%.4lf, %.12lf][%lf], iter = %d\n", a + h1*i, tmpy1, hEiler, ++iter);
+    printf("4:Eiler func: [%.4lf, %.12lf][%lf], iter = %d\n", a + hEiler*i, tmpy1, hEiler, ++iter);
   }
     printf("-----------------------------------\n\n");
   iter = 0;
