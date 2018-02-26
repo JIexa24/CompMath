@@ -59,18 +59,6 @@ void iteration(int n, double **matr){
   double tmp;
   float kf;
 
-  for (i = 0; i < n - 1; i++ ) {
-    k = 0;
-    kf = matr[i][0] / matr[i+1][0];
-    for (j = 0; j < n; j++ ) {
-      if (matr[i][j] == kf * matr[i+1][j])
-        k++;
-      if (k == n) {
-        system("echo 'Матрица Вырожденная (с)Сергей М.'");
-        exit(1);
-      }
-    }
-  }
 		// проверка на диагональное преобладание
   for (i = 0; i < n; i++ ) {
     for(j = 0; j < n; j++){
