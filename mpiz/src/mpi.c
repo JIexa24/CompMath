@@ -104,7 +104,7 @@ void iteration(int n, double **matr){
     }
   }
 		
-  for (i = 0; i < n; i++ ) {;
+  for (i = 0; i < n; i++ ) {
     if(fabs(t[i] - x[i] + matr[i][n]) <= 0.001) {
       f++;
     }
