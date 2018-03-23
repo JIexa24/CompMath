@@ -20,7 +20,7 @@ void bisec()
 {
   assert(f(a) * f(b) < 0);
 
-  double i;
+  long int i;
   for (i = 0; fabs(b - a) > e; i++) {
     c = (a + b) / 2;
     if (f(a) * f(c) < 0)
@@ -28,13 +28,14 @@ void bisec()
     else
       a = c;
   }
-  printf("bisec steps: %lf\n", i);
+  printf("bisec steps: %ld\n", i);
 }
 
 void hord()
 {
   double tmp = 0;
-  double i, flg = 0;
+  long int i;
+  double flg = 0;
   for (i = 0; (fabs(c - tmp) > e || !flg); i++) {
     flg++;
     tmp = c;
@@ -44,19 +45,19 @@ void hord()
     else
       a = c;
   }
-  printf("hord steps: %lf\n", i);
+  printf("hord steps: %ld\n", i);
 }
 
 void newtoon()
 {
   double tmp = a;
-  double j;
+  long int j;
   c = (-1) * (f(tmp) / f1(tmp)) + tmp;
   for (j = 0; f(c) != 0 && fabs(c - tmp) > e; j++) {
     tmp = c;
     c = tmp - (f(tmp) / f1(tmp));
   }
-  printf("newtoon steps: %lf\n", j);
+  printf("newtoon steps: %ld\n", j);
 }
 
 int main(int argc, char **argv)
