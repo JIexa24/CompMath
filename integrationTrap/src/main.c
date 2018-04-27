@@ -4,13 +4,7 @@
 #include <inttypes.h>
 #include <assert.h>
 
-
-double a = 0;
-double b = 4;
-int n = 5;
-double eps = 0.01;
-double h = 0.5;
-double s = 0.0;
+double s = 1;
 
 double func(double x)
 {
@@ -19,11 +13,12 @@ double func(double x)
 
 int main(int argc, char **argv)
 {
-  assert(!(argc < 5));
-  double a = atof(argv[1]);
-  double b = atof(argv[2]);
-  int n = atoi(argv[3]);
-  double eps = atof(argv[4]);
+  //assert(!(argc < 5));
+  double a = 0;//atof(argv[1]);
+  double b = 5;//atof(argv[2]);
+  int n = 100;//atoi(argv[3]);
+  double eps = 0.001;//atof(argv[4]);
+  double h = 0.5;
 
   printf("h = %lf eps = %lf\n", h, eps);
   printf("\nIntegration: [%lf, %lf]\n", a, b);
