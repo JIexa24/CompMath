@@ -77,7 +77,7 @@ double interpolate(double x, double *xVal, double *yVal)
     }
   }
 //  printf("\nfirst ind %d %lf = %lf\n", ind, xVal[ind], x);
-  hloc = xVal[ind] - xVal[ind - 1];
+//  hloc = xVal[ind] - xVal[ind - 1];
   ret = ret + func(xVal[ind]);
   ret = ret + bcoff(ind) * (x - xVal[ind]);
   ret = ret + ccoff(ind) * (x - xVal[ind]) * (x - xVal[ind]) / 2;
