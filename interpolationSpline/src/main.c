@@ -13,7 +13,7 @@ double *yVal = NULL;
 
 double func(double x)
 {
-  return 3 * x * x - 5 * x;
+  return x*x*x;
 }
 double hcoff(int ind)
 {
