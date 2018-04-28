@@ -8,7 +8,7 @@ double b;
 
 double func(double x)
 {
-  return (1/x);
+  return (x*x);
 }
 
 double factorial(double value)
@@ -91,6 +91,7 @@ int main(int argc, char** argv)
 
     printf("f(x) = %lf\n", func(x));
   }
-
+  free(xVal);
+  free(yVal);
   return 0;
 }
