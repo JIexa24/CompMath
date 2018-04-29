@@ -13,7 +13,7 @@ double *yVal = NULL;
 
 double func(double x)
 {
-  return x*x*x;
+  return sin(x);
 }
 double hcoff(int ind)
 {
@@ -98,7 +98,6 @@ int main(int argc, char** argv)
   yVal = (double*) malloc(sizeof(double) * cnt);
   createPrintTable(xVal, yVal,  cnt);
   printf("\n");
-
   for (int i = 0; i < 2*cnt - 1; i++) {
     double x = a + h / 2 * i;
     printf("x = %.2lf\t", x);
